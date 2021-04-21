@@ -1,5 +1,12 @@
-.garden {
-    padding: 2em;
+.main {
+    padding: 20px;
+  }
+  
+  .main-child.garden {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 3px solid black;
   }
   
   table {
@@ -19,3 +26,22 @@
     height: 4em;
   }
   
+  .main-child.seed-bank {
+    width: 30%;
+    float: right;
+    padding: 20px;
+    text-align: center;
+    border: 3px solid black;
+  }
+
+  .game-data {
+      width: 100%;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+  }
+
+  #point-counter {
+    float: right;
+    margin-right: 10px;
+    font-size: 25px;
+  }
