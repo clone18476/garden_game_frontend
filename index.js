@@ -23,3 +23,7 @@ function getPlants() {
 }
 
 // data-id=${plant.id}
+
+// click in a grid => show what seeds you have (type - how many) in a menu => click on a flower in the menu => plant the seed => show sapling image => after time_to_grow seconds, show plant image
+
+// Need to think through how this game is going to work before I code any further.
