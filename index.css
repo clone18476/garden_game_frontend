@@ -46,6 +46,12 @@
     font-size: 25px;
   }
 
+  #start-game-button {
+    float: left;
+    margin-left: 10px;
+    font-size: 25px;
+  }
+
   .flower {
     text-align: center;
     padding: 1rem;

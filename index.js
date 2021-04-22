@@ -11,7 +11,7 @@ function createStartGameButton() {
     let startGameButton = document.createElement("button")
     startGameButton.innerText = "Start Game"
     startGameButton.id = "start-game-button"
-    document.querySelector('.main-child.garden').appendChild(startGameButton)
+    document.querySelector('.game-data').appendChild(startGameButton)
 }
 
 function startGame() {
@@ -22,6 +22,8 @@ function startGame() {
     })
 
     alert('Get ready to garden! Click any grid to plant a flower.')
+
+    document.querySelector('#start-game-button').remove()
 }
 
 function populateSeedBank() {
