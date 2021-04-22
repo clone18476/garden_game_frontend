@@ -45,3 +45,16 @@
     margin-right: 10px;
     font-size: 25px;
   }
+
+  .flower {
+    text-align: center;
+    padding: 1rem;
+    display: inline-grid;
+    margin: 1rem 1rem;
+  }
+
+  .flower > img {
+    justify-self: center;
+    height: 10rem;
+    width: 10rem;
+  }
