@@ -1,29 +1,57 @@
 const endPoint = "http://localhost:3000/api/v1/plants"
 
 document.addEventListener('DOMContentLoaded', () => {
-    // getPlants()
+    createStartGameButton();
+    populateSeedBank();
+
+    document.querySelector('button#start-game-button').addEventListener('click', () => startGame())
 })
 
-function getPlants() {
-    fetch(endPoint) // returns a promise
-    .then(response => response.json()) // parse promise into json
-    .then(plants => { // do something with the json
-        console.log(plants);
+function createStartGameButton() {
+    let startGameButton = document.createElement("button")
+    startGameButton.innerText = "Start Game"
+    startGameButton.id = "start-game-button"
+    document.querySelector('.game-data').appendChild(startGameButton)
+}
+
+function startGame() {
+    let cells = document.querySelectorAll('td')
+
+    cells.forEach((cell) => {
+        cell.innerHTML = ""
+    })
+
+    alert('Get ready to garden! Click any grid to plant a flower.')
+
+    document.querySelector('#start-game-button').remove()
+}
+
+function populateSeedBank() {
+    let seedBank = document.querySelector('div.main-child.seed-bank')
+
+    fetch(endPoint)
+    .then(response => response.json())
+    .then(plants => {
         plants.data.forEach(plant => {
-            // const plantMarkup = 
-            // <div> 
-            //     <h3>${plant.attributes.name}</h3>
-            // </div> ;
+            let plantDiv = document.createElement('div')
+            plantDiv.classList.add('flower')
+            let img = document.createElement('img')
+            img.src = plant.attributes.img_url
 
-            // document.querySelector('#plants-container').innerHTML += plantMarkup
+            let par1 = document.createElement('p')
+            par1.innerText = `Name: ${plant.attributes.name}`
+            let par2 = document.createElement('p')
+            par2.innerText = `Time to Grow: ${plant.attributes.time_to_grow} minutes`
 
-            document.querySelector('#plants-container').innerHTML += plant.attributes.name
+            plantDiv.appendChild(img)
+            plantDiv.appendChild(par1)
+            plantDiv.appendChild(par2)
+
+            seedBank.appendChild(plantDiv)
         })
     })
 }
 
-// data-id=${plant.id}
+// part of plant_flower => collect all the cells in the grid programatically (so you can add new levels) and add click event listeners => document.querySelectorAll('td')
 
-// click in a grid => show what seeds you have (type - how many) in a menu => click on a flower in the menu => plant the seed => show sapling image => after time_to_grow seconds, show plant image
-
-// Need to think through how this game is going to work before I code any further.
+// NOTE: event.detail is how you access the click count
