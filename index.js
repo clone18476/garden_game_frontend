@@ -30,3 +30,5 @@ function createStartGameButton() {
 //         })
 //     })
 // }
+
+// NOTE: event.detail is how you access the click count
