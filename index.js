@@ -1,8 +1,17 @@
 const endPoint = "http://localhost:3000/api/v1/plants"
 
 document.addEventListener('DOMContentLoaded', () => {
+    createStartGameButton();
 
+    document.querySelector('button#start-game-button').addEventListener('click', () => alert('You clicked Start Game'))
 })
+
+function createStartGameButton() {
+    let startGameButton = document.createElement("button")
+    startGameButton.innerText = "Start Game"
+    startGameButton.id = "start-game-button"
+    document.querySelector('.main-child.garden').appendChild(startGameButton)
+}
 
 // function getPlants() {
 //     fetch(endPoint) // returns a promise
